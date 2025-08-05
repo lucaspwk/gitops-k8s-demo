@@ -1,1 +1,0 @@
-# gitops-k8s-demo

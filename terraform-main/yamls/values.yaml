@@ -1,0 +1,8 @@
+
+fullnameOverride: ${release_name}
+crds:
+  install: true
+#
+configs:
+  params:
+    server.insecure: true
