@@ -13,12 +13,18 @@ This project demonstrates a local GitOps workflow using **Minikube**, **Terrafor
     - `dev-internal`, `dev-external`
     - `stag-internal`, `stag-external`
     - `prod-internal`, `prod-external`
-- ✅ **Argo CD** installed via Helm and bootstrapped with manifests
-- ✅ GitOps flow with declarative YAML for:
-  - environment segregation:
-    - `dev`, `stag` and `prod`
-- ✅ Deployment of a simple Nginx app
-- ✅ Defined monitoring metrics and thresholds
+- ✅ **Argo CD** installation via Helm and initialization with GitOps bootstrap
+- ✅ **GitOps Workflow** powered by **Argo CD**
+  - Uses the **App of Apps** pattern to manage applications for each environment:
+    - `dev`, `stag`, and `prod` environments each have their own App of Apps definition
+    - Simplifies multi-environment lifecycle management
+- ✅ Application deployment lifecycle:
+    - Deployment of a simple Nginx app
+    - Promote changes from **dev → stag → prod**
+    - Rollback to any previous version
+- ✅ Clear environment isolation:
+    - Different Helm chart versions and configuration per environment
+- ✅ Monitoring metrics and thresholds defined
 
 ---
 
