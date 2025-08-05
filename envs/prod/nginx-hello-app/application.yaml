@@ -30,6 +30,7 @@ spec:
             mountPath: /opt/bitnami/nginx/html
   destination:
     namespace: prod-internal
+    server: https://kubernetes.default.svc
   syncPolicy:
     automated:
       prune: true
