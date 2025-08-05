@@ -25,8 +25,8 @@ resource "helm_release" "argocd" {
 
   lifecycle {
     precondition {
-      condition     = fileexists(local.values_yaml_path)
-      error_message = " --> Error: Failed to find '${local.values_yaml_path}'. Exit terraform process."
+      condition     = fileexists(local.argocd_values_yaml_path)
+      error_message = " --> Error: Failed to find '${local.argocd_values_yaml_path}'. Exit terraform process."
     }
   }
 }
