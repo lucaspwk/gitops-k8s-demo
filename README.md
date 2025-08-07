@@ -45,6 +45,25 @@ gitops-k8s-demo/
 ├── terraform-modules/ # Reusable Terraform modules
 ```
 
+## ⚙️ Setup Instructions
+### 📦 Prerequisites
+Ensure you have the following installed:
+- Docker
+- Minikube
+- Terraform
+- kubectl
+- Bash shell
+
+## 🚀 One-Command Install & Run
+To provision everything (Minikube, Terraform infra, Argo CD, App of Apps):
+```bash
+./bootstrap.sh
+```
+This script will:
+- Initialize and apply Terraform
+- Apply Argo CD App of Apps manifests for all environments
+- ArgoCD local port-forwarding
+
 ## 🚀 Deployment & Release Process
 This repository follows a GitOps-based release strategy using Argo CD. Each environment (dev, stag, prod) has its own Argo CD Application manifest located in the envs/ directory.
 
@@ -100,9 +119,12 @@ Below are example monitoring metrics and thresholds that should be tracked to en
 | **Argo CD Sync Status**                | `OutOfSync` or `Degraded` state       | Git and cluster drift; signals deployment issues                         |
 | **Argo CD Sync Failures**              | > 3 sync errors/hour                  | Often caused by chart issues, Helm errors, or misconfiguration  |   
 
-### 🛠️ Future Work / To-Do
+## 🛠️ Future Work / To-Do
 
 Planned enhancements to further improve automation, flexibility, and safety of the GitOps workflow:
+
+#### 🏗️ App of Apps Terraform Management
+Currently, the App of Apps pattern is deployed via the `bootstrap.sh` script using `kubectl apply`. The plan is to migrate to Terraform Kubernetes Provider and use the kubernetes_manifest resource to deploy App of Apps definitions.
 
 #### 🔄 Image Update Automation
 

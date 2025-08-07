@@ -1,9 +1,3 @@
-variable "cluster_name" {
-  type        = string
-  default     = "minikube-hostaway"
-  description = "Minikube cluster name"
-}
-
 variable "driver" {
   type        = string
   default     = "docker"
@@ -25,33 +19,48 @@ variable "namespaces" {
     annotations    = map(string)
   }))
   default = {
-    staging-internal = {
+    dev-internal = {
       labels = {
-        environment = "staging"
+        environment = "dev"
         visibility  = "internal"
       }
       annotations = {}
     }
 
-    staging-external = {
+    dev-external = {
       labels = {
-        environment = "staging"
+        environment = "dev"
+        visibility  = "external"
+      }
+      annotations = {}
+    }
+    stag-internal = {
+      labels = {
+        environment = "stag"
+        visibility  = "internal"
+      }
+      annotations = {}
+    }
+
+    stag-external = {
+      labels = {
+        environment = "stag"
         visibility  = "external"
       }
       annotations = {}
     }
 
-    production-internal = {
+    prod-internal = {
       labels = {
-        environment = "production"
+        environment = "prod"
         visibility  = "internal"
       }
       annotations = {}
     }
 
-    production-external = {
+    prod-external = {
       labels = {
-        environment = "production"
+        environment = "prod"
         visibility  = "external"
       }
       annotations = {}
