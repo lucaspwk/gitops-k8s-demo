@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://charts.bitnami.com/bitnami
-    targetRevision: 16.0.3
+    targetRevision: 16.0.4
     chart: nginx
     helm:
       valuesObject:
@@ -18,7 +18,7 @@ spec:
         initContainers:
           - name: content-init
             image: busybox
-            command: ["sh", "-c", "echo \"<h1>Hello It's Me - STAG!</h1>\" > /app/index.html"]
+            command: ["sh", "-c", "echo \"<h1>Hello It's Me - STAG! NEW</h1>\" > /app/index.html"]
             volumeMounts:
               - name: html-content
                 mountPath: /app
